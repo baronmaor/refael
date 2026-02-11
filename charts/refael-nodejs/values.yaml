@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: maorbaron/refael
-  tag: ef16559a9f9a604d8cf017670721f6bfda7b00e4
+  tag: 01157572dae2654aa82302f1ebf2c13164bc7bf2
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
