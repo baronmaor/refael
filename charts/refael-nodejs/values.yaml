@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: maorbaron/refael
-  tag: "latest"
+  tag: "OVERRIDE_ME"
   pullPolicy: IfNotPresent
 
 service:
