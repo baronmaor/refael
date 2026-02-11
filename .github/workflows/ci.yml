@@ -70,7 +70,21 @@ jobs:
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: 1
+      - name: Generate SBOM (CycloneDX)
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: maorbaron/refael:${{ github.sha }}
+          format: cyclonedx
+          output: sbom.cdx.json
 
+      - name: Upload SBOM artifact
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-cyclonedx
+          path: sbom.cdx.json
+    
       - name: Install yq
         if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
         run: |
