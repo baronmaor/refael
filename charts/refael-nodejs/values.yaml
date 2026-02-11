@@ -1,18 +1,14 @@
 replicaCount: 2
-
 image:
   repository: maorbaron/refael
-  tag: "latest"
+  tag: "307937308689e29cae9af5b6107a40389eb208da"
   pullPolicy: IfNotPresent
-
 service:
   type: ClusterIP
   port: 80
   targetPort: 8080
-
 env:
   PORT: "8080"
-
 ingress:
   enabled: true
   className: nginx
@@ -20,11 +16,9 @@ ingress:
   paths:
     - path: /
       pathType: Prefix
-
 probes:
   readinessPath: /ready
   livenessPath: /live
-
 resources:
   requests:
     cpu: 50m
