@@ -2,10 +2,14 @@
 
 ## About the Project
 
+
 The app itself is very simple (just a small Node.js / Express server).  
 The main goal here wasn't the app — it was building a full CI/CD + Kubernetes workflow around it.
 
 This was my first time setting up something like this end to end, so most of the learning happened while building and debugging it.
+
+i used Deployment the reason behind as ai understand is due to app nature, 
+the nodejs app only serves http requests , no static storage , db or any kind of static content to be served .
 
 ## What I Set Up
 
