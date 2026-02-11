@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: maorbaron/refael
-  tag: "OVERRIDE_ME"
+  tag: "d814eca38689a5fe21abdf6dd7f9936326645900"
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
