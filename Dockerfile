@@ -1,5 +1,6 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
+RUN npm i -g npm@latest
 COPY package*.json ./
 RUN npm ci --omit=dev
 FROM node:22-alpine
