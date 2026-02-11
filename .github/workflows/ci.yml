@@ -27,3 +27,8 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t refael-app:test .
+
+      - name: Run Semgrep SAST scan
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: "auto"
