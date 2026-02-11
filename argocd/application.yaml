@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: refael-nodejs
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/baronmaor/refael.git
+    targetRevision: master
+    path: charts/refael-nodejs
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: refael
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

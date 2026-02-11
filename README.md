@@ -14,3 +14,7 @@ A lightweight Node.js application. It features basic web endpoints, Prometheus m
 ## Prerequisites
 
 - Node.js (v22.1.0)
+
+
+eGo28OmI7lRbLEns
+admin
