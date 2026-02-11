@@ -21,23 +21,17 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+# CSRF rule excluded: demo app has no cookie/session auth and only GET endpoints
+      - name: Run Semgrep SAST scan
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: "auto"
+        env:
+          SEMGREP_ARGS: >-
+            --exclude-rule javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
 
       - name: Run tests
         run: npm test || echo "No tests defined"
 
       - name: Build Docker image
         run: docker build -t refael-app:test .
-
-      - name: Run Semgrep SAST scan
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: "auto"
-
-      - name: Run Semgrep SAST scan
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: "auto"
-        env:
-          SEMGREP_RULES: "auto"
-          SEMGREP_ARGS: "--exclude-rule javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage"
-          # CSRF failed so i have exluded the rules - it seems like it checks coockies and sessions auth - DEMO APP has no such things 
