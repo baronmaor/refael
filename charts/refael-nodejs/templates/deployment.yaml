@@ -30,7 +30,7 @@ spec:
             runAsGroup: 10001
             readOnlyRootFilesystem: true
             capabilities:
-            drop: ["ALL"]
+              drop: ["ALL"]
           env:
             - name: PORT
               value: {{ .Values.env.PORT | quote }}
