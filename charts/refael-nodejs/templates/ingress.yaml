@@ -8,11 +8,13 @@ metadata:
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:
-    - {{- if .Values.ingress.host }}host: {{ .Values.ingress.host | quote }}{{- end }}
+    - {{- if .Values.ingress.host }}
+      host: {{ .Values.ingress.host | quote }}
+      {{- end }}
       http:
         paths:
           {{- range .Values.ingress.paths }}
-          - path: {{ .path }}
+          - path: {{ .path | quote }}
             pathType: {{ .pathType }}
             backend:
               service:
